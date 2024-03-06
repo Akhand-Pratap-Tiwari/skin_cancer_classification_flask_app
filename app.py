@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import base64
 from io import BytesIO
+from flask_cors import CORS
 # import pandas as pd
 import numpy as np
 import tensorflow as tf
@@ -17,6 +18,8 @@ from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 app = Flask(__name__)
+cors = CORS(app)
+# app.config['CORS_HEADERS'] = 'Content-Type'
 
 image_size = (299, 299)
 targetnames = ['akiec', 'bcc', 'bkl', 'df', 'mel', 'nv', 'vasc']
