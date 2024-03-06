@@ -193,6 +193,7 @@ def getPrediction_IRV2SA(img, image_size, model):
 model = getModel()
 
 app = Flask(__name__)
+
 CORS(app)
 
 
