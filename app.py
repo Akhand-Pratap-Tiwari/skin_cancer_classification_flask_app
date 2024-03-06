@@ -28,17 +28,6 @@ from PIL import ImageFile
 
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
-# app = Flask(__name__)
-# cors = CORS(app)
-# CORS(app, origins=["http://localhost:3000", "https://example.com"])
-# cors = CORS(app, resources={"/": {"origins": ["http://localhost:3000"]}})
-# app.config["CORS_HEADERS"] = "Content-Type"
-app = Flask(__name__)
-CORS(app)  # This will enable CORS for all routes
-# app.config["CORS_HEADERS"] = "Content-Type"
-
-# cors = CORS(app, resources={r"/*": {"origins": "*"}})
-# cors = CORS(app, resources={"/": {"origins": ["http://localhost:3000"]}})
 # app.config['CORS_HEADERS'] = 'Content-Type'
 
 image_size = (299, 299)
@@ -202,6 +191,9 @@ def getPrediction_IRV2SA(img, image_size, model):
 
 
 model = getModel()
+
+app = Flask(__name__)
+CORS(app)
 
 
 @app.route("/", methods=["POST"])
