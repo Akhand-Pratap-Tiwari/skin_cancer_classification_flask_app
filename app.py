@@ -17,8 +17,6 @@ from PIL import Image
 from PIL import ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
-app = Flask(__name__)
-cors = CORS(app)
 # app.config['CORS_HEADERS'] = 'Content-Type'
 
 image_size = (299, 299)
@@ -157,6 +155,9 @@ def getPrediction_IRV2SA(img, image_size, model):
     return prediction
 
 model = getModel()
+
+app = Flask(__name__)
+CORS(app)
 
 @app.route('/', methods=['POST'])
 def predict():
