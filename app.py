@@ -139,7 +139,7 @@ def getModel():
     model.compile(optimizer=opt1,
                   loss='categorical_crossentropy',
                   metrics=['accuracy'])
-    model.load_weights("saved_model (4).hdf5")
+    model.load_weights("saved_model_v4.hdf5")
     return model
 
 
